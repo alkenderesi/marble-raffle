@@ -7,6 +7,10 @@
 	// https://hub.docker.com/search?q=
 	"image": "ubuntu:latest",
 
+	// Run commands after the container is built:
+	// https://containers.dev/implementors/json_reference/#lifecycle-scripts
+	"postCreateCommand": "apt update && apt install -y git",
+
 	// Configure tool-specific properties:
 	// https://containers.dev/supporting
 	"customizations": {
