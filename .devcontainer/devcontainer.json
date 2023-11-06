@@ -1,0 +1,19 @@
+// Format details:
+// https://containers.dev/implementors/json_reference/
+{
+	"name": "linux",
+
+	// Use existing Docker images:
+	// https://hub.docker.com/search?q=
+	"image": "ubuntu:latest",
+
+	// Configure tool-specific properties:
+	// https://containers.dev/supporting
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ritwickdey.liveserver"
+			]
+		}
+	}
+}
