@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Non-uniform random selection with a dynamically changing probability distribution.">
-    <link rel="icon" href="https://img.icons8.com/color/48/dice.png">
+    <link rel="icon" href="https://img.icons8.com/ultraviolet/40/dice.png">
     <link rel="stylesheet" href="style.css">
     <title>Marble Raffle</title>
 </head>
@@ -13,28 +13,30 @@
         <ol>
             <li>
                 <div class="item-info">
-                    <input type="text" id="item1" value="Item #1">
-                    <button id="remove-item1" title="remove item">X</button>
+                    <input type="text" class="item-text" value="Item #1">
+                    <button class="remove-button" title="remove item">X</button>
                 </div>
                 <div class="item-weight">
-                    marbles
+                    <div class="marble"></div>
+                    <div class="marble"></div>
+                    <div class="marble"></div>
                 </div>
             </li>
             <li>
                 <div class="item-info">
-                    <input type="text" id="item2" value="Item #2">
-                    <button id="remove-item2" title="remove item">X</button>
+                    <input type="text" class="item-text" value="Item #2">
+                    <button class="remove-button" title="remove item">X</button>
                 </div>
                 <div class="item-weight">
-                    marbles
+                    <div class="marble"></div>
                 </div>
             </li>
         </ol>
-        <button id="add-item" title="add item">add</button>
     </main>
     <footer>
-        <button id="reset" title="reset list">reset</button>
-        <button id="roll" title="roll random item">roll</button>
+        <button id="add-item" title="add new item">add</button>
+        <button id="roll-item" title="roll random item">roll</button>
+        <button id="reset-list" title="reset list">reset</button>
     </footer>
     <script src="script.js"></script>
 </body>
