@@ -25,8 +25,7 @@ function createItem() {
 }
 
 function addItem() {
-    const item = createItem()
-    document.getElementById('item-list').appendChild(item)
+    document.getElementById('item-list').appendChild(createItem())
 }
 
 function removeItem(event) {
@@ -42,8 +41,41 @@ function removeItem(event) {
     }
 }
 
-function rollItem() {
+function marbleRaffle() {
+    const itemList = document.getElementById('item-list');
+    const items = itemList.getElementsByTagName('li');
 
+    // Build weighted list
+    let weightedList = [];
+    for (let i = 0; i < items.length; i++) {
+        const marbles = items[i].querySelectorAll('.item-weight div');
+        for (let j = 0; j < marbles.length; j++) {
+            weightedList.push(i)
+        }
+    }
+
+    // Pick a random item
+    const randomIndex = weightedList[Math.floor(Math.random() * weightedList.length)]
+    const chosenItem = items[randomIndex];
+
+    // Remove all but one marble from the chosen item
+    const chosenItemMarbles = chosenItem.querySelectorAll('.item-weight div');
+    for (let i = chosenItemMarbles.length - 1; i > 0; i--) {
+        chosenItemMarbles[i].remove();
+    }
+
+    // Add one marble to all other items
+    for (let i = 0; i < items.length; i++) {
+        if (i !== randomIndex) {
+            const weight = items[i].querySelector('.item-weight');
+            const marble = document.createElement('div');
+            weight.appendChild(marble);
+        }
+    }
+
+    // Show an alert with the value of the chosen item
+    const value = chosenItem.querySelector('input[type="text"]').value;
+    alert(value);
 }
 
 function createDefaultItemList() {
