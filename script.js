@@ -1,3 +1,9 @@
+function updateLocalStorage() {
+    const itemList = document.getElementById('item-list');
+    const htmlString = itemList.outerHTML;
+    localStorage.setItem('itemList', htmlString);
+}
+
 function createItem() {
     const item = document.createElement('li')
 
@@ -26,6 +32,7 @@ function createItem() {
 
 function addItem() {
     document.getElementById('item-list').appendChild(createItem())
+    updateLocalStorage()
 }
 
 function removeItem(event) {
@@ -35,6 +42,7 @@ function removeItem(event) {
 
         if (itemCount > 1) {
             event.target.closest('li').remove();
+            updateLocalStorage()
         } else {
             alert('Cannot remove the last item!');
         }
@@ -76,6 +84,7 @@ function marbleRaffle() {
     // Show an alert with the value of the chosen item
     const value = chosenItem.querySelector('input[type="text"]').value;
     alert(value);
+    updateLocalStorage()
 }
 
 function createDefaultItemList() {
@@ -91,7 +100,15 @@ function resetList() {
     const itemList = document.getElementById('item-list')
     const newItemList = createDefaultItemList()
     itemList.parentNode.replaceChild(newItemList, itemList)
+    updateLocalStorage()
 }
 
+const itemListString = localStorage.getItem('itemList');
 
-document.getElementById('main').appendChild(createDefaultItemList())
+if (itemListString !== null) {
+    document.getElementById('main').innerHTML = itemListString
+    document.getElementById('item-list').addEventListener('click', removeItem);
+} else {
+    document.getElementById('main').appendChild(createDefaultItemList())
+    updateLocalStorage()
+}
