@@ -32,7 +32,7 @@ function createItem() {
     itemInfo.appendChild(itemText);
 
     const removeButton = document.createElement('button');
-    removeButton.setAttribute('title', 'remove item');
+    removeButton.setAttribute('title', 'Remove item');
     removeButton.innerText = 'X';
     itemInfo.appendChild(removeButton);
 
@@ -59,7 +59,7 @@ function addItem() {
 * Attempting to remove the last item triggers a warning alert.
 */
 function removeItem(event) {
-    if (event.type === 'click' && event.target.title === 'remove item') {
+    if (event.type === 'click' && event.target.title === 'Remove item') {
 
         const itemCount = main.querySelectorAll('li').length;
 

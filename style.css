@@ -1,12 +1,15 @@
 * {
     margin: 0;
+    font-size: 1rem;
+    line-height: 1.5rem;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    color: rgb(244 244 245);
 }
 
 body {
     display: flex;
     justify-content: center;
-    background-color: rgb(100 116 139);
+    background-color: rgb(24 24 27);
 }
 
 main {
@@ -14,11 +17,21 @@ main {
     border-radius: 0.5rem;
     padding: 1rem 1rem 0 1rem;
     width: 50%;
-    background-color: rgb(241 245 249);
+    background-color: rgb(39 39 42);
 }
 
 li {
     margin-bottom: 1rem;
+}
+
+button {
+    border-radius: 0.5rem;
+    border-color: rgb(244 244 245);
+    background-color: rgb(3 105 161);
+}
+
+button:hover {
+    background-color: rgb(2 132 199);
 }
 
 .item-info {
@@ -28,6 +41,8 @@ li {
 
 .item-info input {
     width: 100%;
+    border-radius: 0.5rem;
+    background-color: rgb(63 63 70);
 }
 
 .item-info button {
@@ -41,10 +56,10 @@ li {
 .item-weight div {
     margin-right: 0.1rem;
     border-radius: 9999px;
-    width: 0.75rem;
-    height: 0.75rem;
-    background-color: rgb(244 63 94);
-    background-image: linear-gradient(120deg, rgb(0, 0, 0, 0), rgb(0, 0, 0, 0.4));
+    width: 0.8rem;
+    height: 0.8rem;
+    background-color: rgb(56 189 248);
+    background-image: linear-gradient(120deg, rgb(0, 0, 0, 0), rgb(0, 0, 0, 0.6));
 }
 
 footer {
