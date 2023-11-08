@@ -1,7 +1,14 @@
 function updateLocalStorage() {
     const itemList = document.getElementById('item-list');
+    const items = itemList.getElementsByTagName('li');
     const htmlString = itemList.outerHTML;
     localStorage.setItem('itemList', htmlString);
+    let categories = []
+    for (let i = 0; i < items.length; i++) {
+        const input = items[i].querySelector('input[type="text"]');
+        categories.push(input.value)
+    }
+    localStorage.setItem('categories', categories);
 }
 
 function createItem() {
@@ -36,7 +43,7 @@ function addItem() {
 }
 
 function removeItem(event) {
-    if (event.target.tagName === 'BUTTON') {
+    if (event.target.tagName === 'BUTTON' && event.target.title === 'remove item') {
         const itemList = document.getElementById('item-list');
         const itemCount = itemList.getElementsByTagName('li').length;
 
@@ -91,7 +98,6 @@ function createDefaultItemList() {
     const itemList = document.createElement('ol')
     itemList.setAttribute('id', 'item-list')
     itemList.appendChild(createItem())
-    itemList.addEventListener('click', removeItem);
 
     return itemList
 }
@@ -104,11 +110,18 @@ function resetList() {
 }
 
 const itemListString = localStorage.getItem('itemList');
+const categoryList = localStorage.getItem('categories').split(',');
 
 if (itemListString !== null) {
     document.getElementById('main').innerHTML = itemListString
-    document.getElementById('item-list').addEventListener('click', removeItem);
+    const inputFields = document.querySelectorAll('input[type="text"]')
+    for (let i = 0; i < inputFields.length; i++) {
+        inputFields[i].setAttribute('value', categoryList[i])
+    }
 } else {
     document.getElementById('main').appendChild(createDefaultItemList())
-    updateLocalStorage()
 }
+
+document.getElementById('main').addEventListener('click', removeItem);
+document.getElementById('main').addEventListener('click', updateLocalStorage);
+document.getElementById('main').addEventListener('input', updateLocalStorage);
