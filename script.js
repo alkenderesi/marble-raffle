@@ -125,7 +125,7 @@ function createDefaultItemList() {
 * Reset the item list to the default state.
 */
 function resetList() {
-    const items = main.querySelecto('ol');
+    const items = main.querySelector('ol');
     const newItems = createDefaultItemList();
     items.parentNode.replaceChild(newItems, items);
 }
