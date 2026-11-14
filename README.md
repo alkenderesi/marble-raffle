@@ -53,4 +53,4 @@ The application uses the browser's `localStorage` to save the state of the raffl
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is released into the public domain under [The Unlicense](LICENSE).
